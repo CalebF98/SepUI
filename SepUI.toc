@@ -4,4 +4,4 @@
 ## DefaultState: enabled
 ## SavedVariable: SepUI
 
-Core.lua
+init.lua
