@@ -1,0 +1,7 @@
+## Interface: 20501
+## Title: SepUI
+## Author: Sepulchre
+## DefaultState: enabled
+## SavedVariable: SepUI
+
+Core.lua
