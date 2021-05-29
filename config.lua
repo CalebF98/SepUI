@@ -72,6 +72,8 @@ function Config:CreateMenu()
     SepUI_Config.checkButton1 = CreateFrame('CheckButton', nil, SepUI_Config, 'UICheckButtonTemplate')
     SepUI_Config.checkButton1:SetPoint('topleft', SepUI_Config.slider1, 'bottomleft', -10, -44)
     SepUI_Config.checkButton1.text:SetText('Are you Sep?')
+
+    return SepUI_Config
 end
 
-
+Config:CreateMenu()
