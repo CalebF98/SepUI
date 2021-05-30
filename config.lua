@@ -21,6 +21,7 @@ local defaults = {
 
 function Config:CreateButton(point, name, relativeFrame, relativePoint, yOffset, text)
     name = name or nil
+
     local btn = CreateFrame('Button', name, UIConfig, 'GameMenuButtonTemplate')
     btn:SetPoint(point, relativeFrame, relativePoint, 0, yOffset)
     btn:SetSize(140, 40)
@@ -28,6 +29,21 @@ function Config:CreateButton(point, name, relativeFrame, relativePoint, yOffset,
     btn:SetNormalFontObject('GameFontNormalLarge')
     btn:SetHighlightFontObject('GameFontNormalLarge')
     return btn
+end
+
+function Config:CreateCheckButton(point, name, relativeFrame, relativePoint, yOffset)
+end
+
+function Config:CreateSlider(point, name, relativeFrame, relativePoint, yOffset, min, max, default)
+    min = min or 0
+    max = max or 100
+    default = default or 50
+
+    local slider = CreateFrame('Slider', name, UIConfig, 'OptionsSliderTemplate') 
+    slider:SetPoint('center', relativeFrame, relativePoint, 0, yOffset)
+    slider:SetMinMaxValues(min, max)
+    slider:SetValue(default)
+    return slider
 end
 
 function Config:CreateMenu()
@@ -50,17 +66,9 @@ function Config:CreateMenu()
     -- Reload UI Button
     UIConfig.reloadBtn = self:CreateButton('center', 'reload', UIConfig.resetBtn, 'center', -48,' Reload UI')
     -- Slider 1
-    UIConfig.slider1 = CreateFrame('Slider', 'slider1', UIConfig, 'OptionsSliderTemplate')
-    UIConfig.slider1:SetPoint('center', UIConfig, 'bottom', 0, 140)
-    UIConfig.slider1:SetMinMaxValues(0,100)
-    UIConfig.slider1:SetValue(50)
-
+    UIConfig.slider1 = self:CreateSlider('center', 'slider1', UIConfig.reloadBtn, 'center', -40)
     -- Slider 2
-    UIConfig.slider2 = CreateFrame('Slider', 'slider2', UIConfig, 'OptionsSliderTemplate')
-    UIConfig.slider2:SetPoint('center', UIConfig.slider1, 'center', 0, -36)
-    UIConfig.slider2:SetMinMaxValues(0,100)
-    UIConfig.slider2:SetValue(50)
-
+    UIConfig.slider1 = self:CreateSlider('center', 'slider2', UIConfig.slider1, 'center', -40)
     -- Check Button 1
     UIConfig.checkButton1 = CreateFrame('CheckButton', nil, UIConfig, 'UICheckButtonTemplate')
     UIConfig.checkButton1:SetPoint('topleft', UIConfig.slider1, 'bottomleft', -10, -44)
