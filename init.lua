@@ -8,4 +8,7 @@ end
 for i =1, NUM_CHAT_WINDOWS do
     _G['ChatFrame'..i..'EditBox']:SetAltArrowKeyMode(false)
 end
-
+-------------------------------------------------------------------------------
+local _, core = ...
+-- Load options menu
+core.Config:CreateMenu()
