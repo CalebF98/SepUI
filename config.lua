@@ -28,10 +28,16 @@ function Config:CreateButton(point, name, relativeFrame, relativePoint, yOffset,
     btn:SetText(text)
     btn:SetNormalFontObject('GameFontNormalLarge')
     btn:SetHighlightFontObject('GameFontNormalLarge')
+
     return btn
 end
 
-function Config:CreateCheckButton(point, name, relativeFrame, relativePoint, yOffset)
+function Config:CreateCheckbox(point, name, relativeFrame, relativePoint, xOffset, yOffset, text)
+    local btn = CreateFrame('CheckButton', name, UIConfig, 'UICheckButtonTemplate')
+    btn:SetPoint(point, relativeFrame, relativePoint, xOffset, yOffset)  
+    btn.text:SetText(text)
+
+    return btn
 end
 
 function Config:CreateSlider(point, name, relativeFrame, relativePoint, yOffset, min, max, default)
@@ -43,6 +49,7 @@ function Config:CreateSlider(point, name, relativeFrame, relativePoint, yOffset,
     slider:SetPoint('center', relativeFrame, relativePoint, 0, yOffset)
     slider:SetMinMaxValues(min, max)
     slider:SetValue(default)
+
     return slider
 end
 
@@ -68,11 +75,11 @@ function Config:CreateMenu()
     -- Slider 1
     UIConfig.slider1 = self:CreateSlider('center', 'slider1', UIConfig.reloadBtn, 'center', -40)
     -- Slider 2
-    UIConfig.slider1 = self:CreateSlider('center', 'slider2', UIConfig.slider1, 'center', -40)
+    UIConfig.slider2 = self:CreateSlider('center', 'slider2', UIConfig.slider1, 'center', -40)
     -- Check Button 1
-    UIConfig.checkButton1 = CreateFrame('CheckButton', nil, UIConfig, 'UICheckButtonTemplate')
-    UIConfig.checkButton1:SetPoint('topleft', UIConfig.slider1, 'bottomleft', -10, -44)
-    UIConfig.checkButton1.text:SetText('Are you Sep?')
+    UIConfig.checkBox1 = self:CreateCheckbox('topleft', 'checkBtn', UIConfig.slider1, 'bottomleft', -10, -48, 'Are you Sepulchre?')
+    --UIConfig.checkButton1:SetPoint('topleft', UIConfig.slider1, 'bottomleft', -10, -44)
+    --UIConfig.checkButton1.text:SetText('Are you Sep?')
 
     return UIConfig
 end
