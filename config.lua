@@ -78,8 +78,6 @@ function Config:CreateMenu()
     UIConfig.slider2 = self:CreateSlider('center', 'slider2', UIConfig.slider1, 'center', -40)
     -- Check Button 1
     UIConfig.checkBox1 = self:CreateCheckbox('topleft', 'checkBtn', UIConfig.slider1, 'bottomleft', -10, -48, 'Are you Sepulchre?')
-    --UIConfig.checkButton1:SetPoint('topleft', UIConfig.slider1, 'bottomleft', -10, -44)
-    --UIConfig.checkButton1.text:SetText('Are you Sep?')
 
     return UIConfig
 end

@@ -1,3 +1,4 @@
+------------------------------------------------------------------------------
 SLASH_FRAMESTK1 = '/fs' -- For quicker access to framestack
 SlashCmdList.FRAMESTK = function()
     LoadAddOn('Blizzard_DebugTools')
