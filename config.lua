@@ -19,6 +19,11 @@ local defaults = {
     }
 }
 
+function Config:Toggle()
+    local menu = UIConfig or Config:CreateMenu()
+    menu:SetShown(not menu:IsShown())
+end
+
 function Config:CreateButton(point, name, relativeFrame, relativePoint, yOffset, text)
     name = name or nil
 
@@ -80,6 +85,7 @@ function Config:CreateMenu()
     UIConfig.checkBox1 = self:CreateCheckbox('topleft', 'checkBtn', UIConfig.slider1, 'bottomleft', -10, -48, 'Are you Sepulchre?')
     --UIConfig.checkButton1:SetPoint('topleft', UIConfig.slider1, 'bottomleft', -10, -44)
     --UIConfig.checkButton1.text:SetText('Are you Sep?')
-
+    
+    UIConfig:Hide()
     return UIConfig
 end
